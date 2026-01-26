@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Http\Requests\Admin\System\User\Crud;
+
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
+class ValidateUpdateAdminUser extends FormRequest
+{
+   /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function message() : array
+    {
+        return [
+        ];
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     */
+    public function rules($request,$row): array
+    {
+        $rules =  [
+            'name' => 'required|string|max:253',
+            'user_access' => 'required|array'
+        ];
+        if($row->isDirty('name')) {
+            $rules['mobile_number'] = 'required|string|max:253|unique:admin_users,mobile_number';
+            $rules['email'] = 'required|email|max:253|unique:admin_users,email';
+        }
+        if($request->image != '') {
+            $rules['image'] = 'required|mimes:jpg,jpeg,png,webp|max:2024';
+        }
+        return $rules;
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $response = response()->json([
+            'success' => false,
+            'errors'  => $validator->errors(),
+        ]);
+        throw (new ValidationException($validator, $response))->errorBag($this->errorBag);
+    }
+}

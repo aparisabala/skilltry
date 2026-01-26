@@ -1,0 +1,109 @@
+<?php
+
+namespace App\Repositories\Admin\System\User\Policy;
+
+use App\Models\AdminUser;
+use App\Models\AdminUserPermission;
+use App\Models\AdminUserRole;
+use App\Repositories\BaseRepository;
+use App\Traits\BaseTrait;
+use Illuminate\Http\JsonResponse;
+use DB;
+class AdminUserPolicyRepository extends BaseRepository implements IAdminUserPolicyRepository {
+
+    use BaseTrait;
+    /**
+     * View user policy view
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function index($request) : array
+    {
+        $data['availableUser'] = AdminUserRole::select(['code','name'])->whereNotIn('code',['SA'])->get();
+        $data['systePolicies'] = $this->systemPolicies();
+        $this->firstOrCreate($this->getFirstOrCreate($data['systePolicies'],$data['availableUser']));
+        $data['permissions'] = AdminUserPermission::select(['id','slug','user_access'])->get();
+        return $data;
+    }
+
+    /**
+     * Update current user policy
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function update($request) : JsonResponse
+    {
+        $i = AdminUserPermission::whereIn('id',$request->slug)->select(['id','user_access'])->get();;
+        $dirty = [];
+        if (count($i) > 0) {
+            foreach ($i as $key => $value) {
+                $value->user_access =  (isset($request->user_access[$value->id])) ? $request->user_access[$value->id] : NULL;
+                if ($value->isDirty()) {
+                    $dirty[$key] = "yes";
+                }
+            }
+            if (count($dirty) > 0) {
+                DB::beginTransaction();
+                try {
+                    foreach ($i as $key => $value) {
+                        $value->save();
+                    }
+                    $data['extraData'] = [ "inflate" =>  pxLang($request->lang,'','common.action_success')];
+                    DB::commit();
+                    return $this->response(['type' => 'success','data' => $data]);
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    $this->saveError($this->getSystemError(['name'=>'AdminUser_policy_update_error']), $e);
+                    return $this->response(["type"=>"wrong","lang"=>"server_wrong"]);
+                }
+            } else {
+                return $this->response(['type' => 'noUpdate', 'title' =>  '<span class="text-success"> '.pxLang($request->lang,'','common.no_change').' </span>']);
+            }
+
+        } else {
+            return $this->response(['type' => 'noUpdate', 'title' => '<span class="text-success"> '.pxLang($request->lang,'','common.no_change').' </span>']);
+        }
+    }
+
+    /**
+     * List out user policies to be installed
+     *
+     * @param array $policies
+     * @param array $users
+     * @return array
+     */
+    private function getFirstOrCreate($policies,$users) : array
+    {
+        $data = [];
+        foreach ($policies as $systemPolicy) {
+            foreach ($systemPolicy['policies'] as $moduelPolicy) {
+                foreach ($moduelPolicy['policies'] as $actionPolicy){
+                    foreach ($actionPolicy['keys'] as $action){
+                        $uniqueKey = getPolicyKey(\Str::class,$actionPolicy['name'].'_'.$action);
+                        $data[] = [
+                            "slug" => $uniqueKey
+                        ];
+                    }
+                }
+            }
+        }
+        return $data;
+    }
+
+    /**
+     * Found or create role
+     *
+     * @param array $permissions
+     * @return void
+     */
+    private function firstOrCreate($permissions) : void
+    {
+        foreach ($permissions as $perm) {
+            AdminUserPermission::firstOrCreate(
+                ['slug' => $perm['slug']],
+            );
+        }
+    }
+}

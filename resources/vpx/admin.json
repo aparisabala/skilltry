@@ -1,0 +1,5 @@
+{
+    "layout": "Minible",
+    "baseAuth": "admin",
+    "authModel": "AdminUser"
+}
