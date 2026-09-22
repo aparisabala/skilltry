@@ -229,6 +229,9 @@ class PxCommandService
     {
         $permissions = $policyModelQuery::select(['slug', 'user_access'])->get();
         foreach ($permissions as $permission) {
+            if (Gate::has($permission->slug)) {
+                continue;
+            }
             Gate::define($permission->slug, function () use ($permission) {
                 return auth()->user()->hasPermission($permission?->user_access ?? []);
             });

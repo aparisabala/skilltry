@@ -1,27 +1,26 @@
 @extends('admin.layouts.full-page-layout',["tabTitle" => config('i.service_name').' | '.pxLang($data['lang'],'breadCum.title') ])
 @section('page')
-<div class="account-pages my-5 pt-sm-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center">
-                    <a href="{{ url('admin/login') }}" class="mb-5 d-block auth-logo">
-                        <img src="{{ config('i.logo') }}" alt="" class="logo logo-dark">
-                        <img src="{{ config('i.logo') }}" alt="" class="logo logo-light">
-                    </a>
-                </div>
-            </div>
+<div class="auth-split auth-signin">
+    <aside class="auth-brand-panel">
+        <a href="{{ url('admin/login') }}" class="auth-brand-logo">
+            <img src="{{ config('i.logo') }}" alt="{{ config('i.service_name') }}">
+        </a>
+        <div class="auth-brand-content">
+            <span class="auth-feature-icon"><i class="bx bx-log-in-circle" aria-hidden="true"></i></span>
+            <p class="auth-eyebrow">{{ config('i.service_name') }}</p>
+            <h1>{{ __('Your workspace, connected.') }}</h1>
+            <p>{{ __('People, roles and everyday work. Together in one place.') }}</p>
         </div>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-8 col-lg-6 col-xl-5">
-                @include('errors.fragments.error-view-bs5')
-                <div class="card call-center-card">
-                    <div class="card-body p-4">
-                        <div class="text-center mt-2">
-                            <p class="text-muted fs-34"> {{pxLang($data['lang'],'pageTitle')}} </p>
-                        </div>
-                        <div class="p-2 mt-4">
-                            <form id="frmAdminUserLogin" class="mb-3" autocomplete="off" method="POST">
+        <div class="auth-brand-footer"><i class="bx bx-shield-quarter" aria-hidden="true"></i> {{ __('Administration workspace') }}</div>
+    </aside>
+    <main class="auth-form-panel">
+        <div class="auth-form-content">
+            @include('errors.fragments.error-view-bs5')
+            <div class="auth-form-icon"><i class="bx bx-log-in-circle" aria-hidden="true"></i></div>
+            <div >
+                <h2 class="auth-form-title">{{ pxLang($data['lang'],'pageTitle') }}</h2>
+                <p class="text-muted mb-4">{{ __('Enter your details to continue to your account.') }}</p>
+                <form id="frmAdminUserLogin" class="mb-3" autocomplete="off" method="POST">
                                 <div class="mb-3">
                                     <label class="form-label"><b> {{pxLang($data['lang'],'fields.email')}} </b> <em class="required">*</em> <span id="email_error"> </span> </label>
                                     <input type="text" class="form-control" id="email" name="email" placeholder="{{pxLang($data['lang'],'fields.email_palceholder')}}">
@@ -41,12 +40,9 @@
                                     <button class="btn btn-primary w-sm waves-effect waves-light disBtn" disabled type="submit">{{pxLang($data['lang'],'fields.btn_login')}}</button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
             </div>
+            
         </div>
-    </div>
+    </main>
 </div>
 @endsection
-

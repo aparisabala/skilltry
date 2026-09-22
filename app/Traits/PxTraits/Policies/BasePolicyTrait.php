@@ -2,19 +2,20 @@
 
 namespace App\Traits\PxTraits\Policies;
 
-use App\Traits\PxTraits\Policies\Items\SytemUserPolicyTrait;
+use App\Traits\PxTraits\Policies\Items\HrmUserPolicyTrait;
 
 trait BasePolicyTrait {
 
-    use SytemUserPolicyTrait;
-    public function systemPolicies(){
+    use HrmUserPolicyTrait, \App\Traits\PxTraits\Policies\Items\ApiPolicyTrait;
+    public function hrmPolicies(){
         return [
             [
                 'name' => 'Admin Panel',
                 'policies' => [
                     [
-                        ...$this->systemUserPolicies()
-                    ]
+                        ...$this->hrmUserPolicies()
+                    ],
+                    [...$this->apiPolicies()]
                 ]
             ]
         ];

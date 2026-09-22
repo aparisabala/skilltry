@@ -1,5 +1,11 @@
 <?php
 
+function menuActive(string ...$patterns): string
+{
+    return request()->is(...$patterns) ? 'mm-active' : '';
+}
+
+
 function uploadsDir()
 {
     return [

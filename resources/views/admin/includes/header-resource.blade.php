@@ -10,3 +10,4 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 {!! $appStyles ?? '' !!}
 @include('admin.includes.theme')
+@include('admin.includes.theme-override')

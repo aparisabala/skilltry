@@ -11,8 +11,8 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="text-uppercase mt-4">Sorry, permission denied -   403  </h4>
-                <p class="text-muted">You are unable to view this page due to lack of permission </p>
+                <h4 class="text-uppercase mt-4">{{pxLang('','','common.text.403.text')}}   -   403  </h4>
+                <p class="text-muted"> {{pxLang('','','common.text.403.mgs')}} </p>
             </div>
         </div>
     </div>

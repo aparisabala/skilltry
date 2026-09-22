@@ -25,27 +25,11 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="">
                     <a href="{{url('admin/dashboard')}}" class="">
-                        <i class="bx bxs-dashboard"></i>
+                        <i class="bx bx-grid-alt"></i>
                         <span>{{pxLang('admin.main-nav','dashboard')}}</span>
                     </a>
                 </li>
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bxs-cog"></i>
-                        <span>{{pxLang('admin.main-nav','system.core')}}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="{{url('admin/system/user/user-role')}}">{{pxLang('admin.main-nav','system.core.user_role')}}</a>
-                        </li>
-                        <li>
-                            <a href="{{url('admin/system/user')}}">{{pxLang('admin.main-nav','system.core.user')}}</a>
-                        </li>
-                        <li>
-                            <a href="{{url('admin/system/user/user-policy')}}">{{pxLang('admin.main-nav','system.core.user_policy')}}</a>
-                        </li>
-                    </ul>
-                </li>
+                @include('admin.includes._fragments._human-resources')
             </ul>
         </div>
     </div>

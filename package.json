@@ -1,32 +1,35 @@
 {
-  "private": true,
-  "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress  --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress  --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "watch": "vite build --watch",
+        "build": "vite build"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "^4.0.12",
+        "@vitejs/plugin-react": "^4.7.0",
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^1.2.0",
         "tailwindcss": "^4.0.12",
-        "postcss": "^8.5.3",
-        "@babel/preset-react": "^7.22.5",
-        "cross-env": "^7.0",
-        "laravel-mix": "^6.0",
-        "lodash": "^4.17",
-        "resolve-url-loader": "^4.0.0",
-        "sass": "^1.35",
-        "sass-loader": "^12.1",
-        "vue-loader": "^15.9"
+        "vite": "^6.0.11"
     },
     "dependencies": {
-        "@tailwindcss/postcss": "^4.0.12",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-router": "^7.3.0"
+        "axios": "^1.13.2",
+        "bootstrap": "^5.3.8",
+        "crypto-js": "^4.2.0",
+        "jquery": "^3.7.1",
+        "jquery.marquee": "^1.6.1",
+        "md5": "^2.3.0",
+        "next": "16.0.3",
+        "react": "^19.2.6",
+        "react-dom": "^19.2.6",
+        "react-icons": "^5.5.0",
+        "react-loading-skeleton": "^3.5.0",
+        "react-router": "^7.3.0",
+        "react-router-dom": "^7.15.1",
+        "sha1": "^1.1.1",
+        "swiper": "^12.0.3"
     }
 }

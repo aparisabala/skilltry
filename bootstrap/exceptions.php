@@ -33,7 +33,7 @@ return function (Exceptions $exceptions) {
             }
         }
 
-        if ($exception->getCode() >= 500 ) {
+        if ($exception->getCode() >= 500 && !$request->is('api/*')) {
             return response()->view('errors.exception', [
                 'exception' => $exception
             ], 500);

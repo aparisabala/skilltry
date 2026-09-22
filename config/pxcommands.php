@@ -44,7 +44,7 @@ return [
                     'dashboard',
                     'setup',
                     'reset',
-                    'system'
+                    'hrm'
                 ]
             ]
         ]
@@ -81,8 +81,9 @@ return [
         'admin.user.update' => 'admin/setup/user/index',
         'admin.user.pass.update' => 'admin/setup/pass/index',
         'admin.user.nav' => 'admin/setup/navs/index',
-        'admin.system.user' => 'admin/system/user/index',
-        'admin.system.user.user-role' => 'admin/system/user/user-role/index',
-        'admin.system.user.policy' => 'admin/system/user/policy/index'
+        'admin.hrm.user' => 'admin/hrm/user/index',
+        'admin.hrm.user.user-role' => 'admin/hrm/user/user-role/index',
+        'admin.hrm.user.policy' => 'admin/hrm/user/policy/index',
+        'admin.hrm.user.policy.modal.update-policy-item' => 'admin/hrm/user/policy/modal/update-policy-item/index',
     ]
 ];

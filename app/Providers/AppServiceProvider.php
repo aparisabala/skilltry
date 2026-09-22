@@ -24,5 +24,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //vpx_binds
         Paginator::useBootstrapFive();
+        \Illuminate\Support\Facades\View::composer('admin.includes._fragments._human-resources', function ($view) {
+            $view->with('data', ['userRoles' => \App\Models\AdminUserRole::select(['id', 'code', 'name'])->get()]);
+        });
     }
 }

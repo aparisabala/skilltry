@@ -23,17 +23,24 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //vpx_attach
-            DB::table('admin_users')->insert([
-    'uuid' => (string) Uuid::generate(4),
-    'admin_type' => "Super Admin",
-    'name' => "Webmaster",
-    'mobile_number' => "01727572841",
-    'email' => "admin@admin.com",
-    'password' => Hash::make('123456789'),
-    'is_secret' => 'yes',
-    'user_access' => json_encode(['SA']),
-    'created_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
-    'updated_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
-]);
+        DB::table('admin_user_roles')->insert([
+            'name' => 'Super Admin',
+            'code' => "SA",
+            'can_select' => "no",
+            'created_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('admin_users')->insert([
+            'uuid' => (string) Uuid::generate(4),
+            'admin_type' => "Super Admin",
+            'name' => "Webmaster",
+            'mobile_number' => "01727572841",
+            'email' => "admin@admin.com",
+            'password' => Hash::make('123456789'),
+            'is_secret' => 'yes',
+            'admin_user_role_id' => 1,
+            'created_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

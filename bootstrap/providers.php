@@ -6,6 +6,7 @@ return [
     App\Providers\PxCommandServiceProvider::class,
     App\Providers\RepositoryServiceProvider::class,
     App\Providers\RouteServiceProvider::class,
+    App\Providers\ApiDocsServiceProvider::class,
     //vpx_app_providers
     App\Providers\PxCommandServiceProvider::class,
     Yajra\DataTables\DataTablesServiceProvider::class,
