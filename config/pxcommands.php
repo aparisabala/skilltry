@@ -46,7 +46,8 @@ return [
                     'reset',
                     'hrm',
                     'datalibrary',
-                    'category'
+                    'category',
+                    'account'
                 ]
             ]
         ]
@@ -97,5 +98,6 @@ return [
         'admin.category.category' => 'admin/category/category/index',
         'admin.category.subcategory' => 'admin/category/subcategory/index',
         'admin.category.specialization' => 'admin/category/specialization/index',
+        'admin.account.ledger.crud' => 'admin/account/ledger/crud/index',
     ]
 ];

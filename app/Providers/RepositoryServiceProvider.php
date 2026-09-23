@@ -60,5 +60,6 @@ class RepositoryServiceProvider extends ServiceProvider
             $this->app->bind(abstract: ILibCategoryRepository::class, concrete: LibCategoryRepository::class);
             $this->app->bind(abstract: ILibSubcategoryRepository::class, concrete: LibSubcategoryRepository::class);
             $this->app->bind(abstract: ILibSpecializationRepository::class, concrete: LibSpecializationRepository::class);
+            $this->app->bind(abstract: \App\Repositories\Admin\Account\Ledger\Crud\IAcLedgerCrudRepository::class, concrete: \App\Repositories\Admin\Account\Ledger\Crud\AcLedgerCrudRepository::class);
         }
 }

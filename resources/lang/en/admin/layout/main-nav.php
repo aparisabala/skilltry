@@ -14,5 +14,12 @@ return [
     'datalibrary.menu.division' => 'Division',
     'datalibrary.menu.district' => 'District',
     'datalibrary.menu.thana' => 'Thana',
-    'category.menu' => 'Category'
+    'category.menu' => 'Category',
+    'account.menu' => 'Account',
+    'account.menu.ledgers' => 'Ledgers',
+    'account.menu.ledgers.asset' => 'Asset',
+    'account.menu.ledgers.cash' => 'Cash',
+    'account.menu.ledgers.bank' => 'Bank',
+    'account.menu.ledgers.income' => 'Income',
+    'account.menu.ledgers.expense' => 'Expense'
 ];

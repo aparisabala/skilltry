@@ -24,8 +24,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         // HR abilities must exist before the first visit creates permission rows.
-        $hrm = new class { use \App\Traits\PxTraits\Policies\Items\HrmUserPolicyTrait, \App\Traits\PxTraits\Policies\Items\ApiPolicyTrait, \App\Traits\PxTraits\Policies\Items\DataLibraryPolicyTrait, \App\Traits\PxTraits\Policies\Items\CategoryPolicyTrait; };
-        foreach (array_merge($hrm->hrmUserPolicies()['policies'], $hrm->apiPolicies()['policies'], $hrm->dataLibraryPolicies()['policies'], $hrm->categoryPolicies()['policies']) as $policy) {
+        $hrm = new class { use \App\Traits\PxTraits\Policies\Items\HrmUserPolicyTrait, \App\Traits\PxTraits\Policies\Items\ApiPolicyTrait, \App\Traits\PxTraits\Policies\Items\DataLibraryPolicyTrait, \App\Traits\PxTraits\Policies\Items\CategoryPolicyTrait, \App\Traits\PxTraits\Policies\Items\AccountPolicyTrait; };
+        foreach (array_merge($hrm->hrmUserPolicies()['policies'], $hrm->apiPolicies()['policies'], $hrm->dataLibraryPolicies()['policies'], $hrm->categoryPolicies()['policies'], $hrm->accountPolicies()['policies']) as $policy) {
             foreach ($policy['keys'] as $action) {
                 $slug = getPolicyKey(\Illuminate\Support\Str::class, $policy['name'].'_'.$action);
                 \Illuminate\Support\Facades\Gate::define($slug, function ($user) use ($slug) {
