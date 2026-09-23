@@ -26,6 +26,12 @@ use App\Repositories\Admin\DataLibrary\District\Crud\ILibDistrictRepository;
 use App\Repositories\Admin\DataLibrary\District\Crud\LibDistrictRepository;
 use App\Repositories\Admin\DataLibrary\Thana\Crud\ILibThanaRepository;
 use App\Repositories\Admin\DataLibrary\Thana\Crud\LibThanaRepository;
+use App\Repositories\Admin\Category\Category\Crud\ILibCategoryRepository;
+use App\Repositories\Admin\Category\Category\Crud\LibCategoryRepository;
+use App\Repositories\Admin\Category\Subcategory\Crud\ILibSubcategoryRepository;
+use App\Repositories\Admin\Category\Subcategory\Crud\LibSubcategoryRepository;
+use App\Repositories\Admin\Category\Specialization\Crud\ILibSpecializationRepository;
+use App\Repositories\Admin\Category\Specialization\Crud\LibSpecializationRepository;
 class RepositoryServiceProvider extends ServiceProvider
 {
         /**
@@ -51,5 +57,8 @@ class RepositoryServiceProvider extends ServiceProvider
             $this->app->bind(abstract: ILibDivisionRepository::class, concrete: LibDivisionRepository::class);
             $this->app->bind(abstract: ILibDistrictRepository::class, concrete: LibDistrictRepository::class);
             $this->app->bind(abstract: ILibThanaRepository::class, concrete: LibThanaRepository::class);
+            $this->app->bind(abstract: ILibCategoryRepository::class, concrete: LibCategoryRepository::class);
+            $this->app->bind(abstract: ILibSubcategoryRepository::class, concrete: LibSubcategoryRepository::class);
+            $this->app->bind(abstract: ILibSpecializationRepository::class, concrete: LibSpecializationRepository::class);
         }
 }

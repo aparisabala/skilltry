@@ -31,6 +31,7 @@
                 </li>
                 @include('admin.includes._fragments._human-resources')
                 @include('admin.includes._fragments._data-library')
+                @include('admin.includes._fragments._category')
             </ul>
         </div>
     </div>

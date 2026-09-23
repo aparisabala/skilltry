@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
  * the slug derived from its name, or the one in config('hrm.ability_overrides').
  * An action without a matching slug is not checked, so a missing policy can
  * never lock anybody out. See config/hrm.php for the roll out modes. Only
- * controllers under App\Http\Controllers\{Admin,Api\V1\Admin}\{Hrm,DataLibrary}
+ * controllers under App\Http\Controllers\{Admin,Api\V1\Admin}\{Hrm,DataLibrary,Category}
  * are guarded.
  */
 class AdminPolicyService
@@ -74,7 +74,9 @@ class AdminPolicyService
         $isGuardedModule = str_starts_with($controller, 'App\\Http\\Controllers\\Admin\\Hrm\\')
             || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\Hrm\\')
             || str_starts_with($controller, 'App\\Http\\Controllers\\Admin\\DataLibrary\\')
-            || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\DataLibrary\\');
+            || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\DataLibrary\\')
+            || str_starts_with($controller, 'App\\Http\\Controllers\\Admin\\Category\\')
+            || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\Category\\');
         if ($mode === 'off' || !$isGuardedModule) {
             return null;
         }

@@ -13,5 +13,6 @@ return [
     'datalibrary.menu.skill' => 'Skill',
     'datalibrary.menu.division' => 'Division',
     'datalibrary.menu.district' => 'District',
-    'datalibrary.menu.thana' => 'Thana'
+    'datalibrary.menu.thana' => 'Thana',
+    'category.menu' => 'Category'
 ];

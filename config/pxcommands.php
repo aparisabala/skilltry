@@ -44,7 +44,9 @@ return [
                     'dashboard',
                     'setup',
                     'reset',
-                    'hrm'
+                    'hrm',
+                    'datalibrary',
+                    'category'
                 ]
             ]
         ]
@@ -92,5 +94,8 @@ return [
         'admin.datalibrary.location.division' => 'admin/datalibrary/location/division/index',
         'admin.datalibrary.location.district' => 'admin/datalibrary/location/district/index',
         'admin.datalibrary.location.thana' => 'admin/datalibrary/location/thana/index',
+        'admin.category.category' => 'admin/category/category/index',
+        'admin.category.subcategory' => 'admin/category/subcategory/index',
+        'admin.category.specialization' => 'admin/category/specialization/index',
     ]
 ];
