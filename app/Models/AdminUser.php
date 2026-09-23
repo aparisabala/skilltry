@@ -77,5 +77,15 @@ class AdminUser extends Authenticatable
         return $this->hasMany(AdminUserDesignation::class, 'admin_user_id','id');
     }
 
+    public function hrProfile()
+    {
+        return $this->hasOne(HrProfile::class, 'admin_user_id', 'id');
+    }
+
+    public function salarySetup()
+    {
+        return $this->hasOne(HrSalarySetup::class, 'admin_user_id', 'id');
+    }
+
     //vpx_attach
 }
