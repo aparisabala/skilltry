@@ -71,19 +71,9 @@ class RepositoryServiceProvider extends ServiceProvider
             $this->app->bind(abstract: \App\Repositories\Admin\Account\Transaction\Crud\ManageItem\Crud\IAcDraftBalanceSheetItemCrudRepository::class, concrete: \App\Repositories\Admin\Account\Transaction\Crud\ManageItem\Crud\AcDraftBalanceSheetItemCrudRepository::class);
             $this->app->bind(abstract: \App\Repositories\Admin\Account\Report\Balance\DataView\DisplayBalance\IDisplayBalanceDataViewRepository::class, concrete: \App\Repositories\Admin\Account\Report\Balance\DataView\DisplayBalance\DisplayBalanceDataViewRepository::class);
             $this->app->bind(abstract: \App\Repositories\Admin\Account\Report\Cashbook\Load\AccountCashbook\IAccountCashbookLoadRepository::class, concrete: \App\Repositories\Admin\Account\Report\Cashbook\Load\AccountCashbook\AccountCashbookLoadRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Advance\Crud\IHrAdvanceCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Advance\Crud\HrAdvanceCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Deduction\Crud\IHrDeductionCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Deduction\Crud\HrDeductionCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Leave\Crud\IHrLeaveCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Leave\Crud\HrLeaveCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Education\Crud\IHrEducationCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Education\Crud\HrEducationCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Experience\Crud\IHrExperienceCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Experience\Crud\HrExperienceCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Employment\Crud\IHrEmploymentCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Employment\Crud\HrEmploymentCrudRepository::class);
             $this->app->bind(abstract: IAdminUserDesignationCrudRepository::class, concrete: AdminUserDesignationCrudRepository::class);
             $this->app->bind(abstract: IAdminUserOpdSlotCrudRepository::class, concrete: AdminUserOpdSlotCrudRepository::class);
             $this->app->bind(abstract: IAdminUserOpdFeesOpdFeesUpdateRepository::class, concrete: AdminUserOpdFeesOpdFeesUpdateRepository::class);
             $this->app->bind(abstract: \App\Repositories\Admin\DataLibrary\Department\Crud\ILibDepartmentRepository::class, concrete: \App\Repositories\Admin\DataLibrary\Department\Crud\LibDepartmentRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\LeaveType\Crud\IHrLeaveTypeCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\LeaveType\Crud\HrLeaveTypeCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\Holiday\Crud\IHrHolidayCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\Holiday\Crud\HrHolidayCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\PayComponent\Crud\IHrPayComponentCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\PayComponent\Crud\HrPayComponentCrudRepository::class);
-            $this->app->bind(abstract: \App\Repositories\Admin\Hrm\Staff\PayGrade\Crud\IHrPayGradeCrudRepository::class, concrete: \App\Repositories\Admin\Hrm\Staff\PayGrade\Crud\HrPayGradeCrudRepository::class);
         }
 }

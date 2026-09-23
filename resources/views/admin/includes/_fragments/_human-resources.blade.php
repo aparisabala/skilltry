@@ -27,33 +27,6 @@
             <a href="{{url('admin/hrm/user/user-policy')}}">{{pxLang('admin.main-nav','hrm.menu.user_policy')}}</a>
         </li>
         @endcan
-        @canany(['hr_leave_type_crud_view', 'hr_holiday_crud_view', 'hr_pay_component_crud_view', 'hr_pay_grade_crud_view'])
-        <li class="{{ menuActive('admin/hrm/staff/leave-type*', 'admin/hrm/staff/holiday*', 'admin/hrm/staff/pay-component*', 'admin/hrm/staff/pay-grade*') }}">
-            <a href="#" class="has-arrow waves-effect">Staff Records</a>
-            <ul class="sub-menu" aria-expanded="true">
-                @can('hr_leave_type_crud_view')
-                <li class="{{ menuActive('admin/hrm/staff/leave-type', 'admin/hrm/staff/leave-type/*') }}">
-                    <a href="{{url('admin/hrm/staff/leave-type')}}">Leave Types</a>
-                </li>
-                @endcan
-                @can('hr_holiday_crud_view')
-                <li class="{{ menuActive('admin/hrm/staff/holiday', 'admin/hrm/staff/holiday/*') }}">
-                    <a href="{{url('admin/hrm/staff/holiday')}}">Holidays</a>
-                </li>
-                @endcan
-                @can('hr_pay_component_crud_view')
-                <li class="{{ menuActive('admin/hrm/staff/pay-component', 'admin/hrm/staff/pay-component/*') }}">
-                    <a href="{{url('admin/hrm/staff/pay-component')}}">Pay Components</a>
-                </li>
-                @endcan
-                @can('hr_pay_grade_crud_view')
-                <li class="{{ menuActive('admin/hrm/staff/pay-grade', 'admin/hrm/staff/pay-grade/*') }}">
-                    <a href="{{url('admin/hrm/staff/pay-grade')}}">Pay Grades</a>
-                </li>
-                @endcan
-            </ul>
-        </li>
-        @endcanany
     </ul>
 </li>
 @endcanany
