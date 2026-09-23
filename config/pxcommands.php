@@ -85,5 +85,12 @@ return [
         'admin.hrm.user.user-role' => 'admin/hrm/user/user-role/index',
         'admin.hrm.user.policy' => 'admin/hrm/user/policy/index',
         'admin.hrm.user.policy.modal.update-policy-item' => 'admin/hrm/user/policy/modal/update-policy-item/index',
+        'admin.datalibrary.bank' => 'admin/datalibrary/bank/index',
+        'admin.datalibrary.board' => 'admin/datalibrary/board/index',
+        'admin.datalibrary.degree' => 'admin/datalibrary/degree/index',
+        'admin.datalibrary.skill' => 'admin/datalibrary/skill/index',
+        'admin.datalibrary.location.division' => 'admin/datalibrary/location/division/index',
+        'admin.datalibrary.location.district' => 'admin/datalibrary/location/district/index',
+        'admin.datalibrary.location.thana' => 'admin/datalibrary/location/thana/index',
     ]
 ];

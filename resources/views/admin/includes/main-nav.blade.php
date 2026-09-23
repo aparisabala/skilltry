@@ -30,6 +30,7 @@
                     </a>
                 </li>
                 @include('admin.includes._fragments._human-resources')
+                @include('admin.includes._fragments._data-library')
             </ul>
         </div>
     </div>

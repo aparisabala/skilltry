@@ -9,13 +9,16 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 /**
- * Server side enforcement of the admin permissions (Hrm > User policy).
+ * Server side enforcement of the admin permissions (Hrm > User policy and
+ * Data Library policies).
  *
  * The permission slugs (e.g. lib_service_crud_view) are registered as Gates by
  * PxCommandService::registerPolicies. A controller action is checked against
  * the slug derived from its name, or the one in config('hrm.ability_overrides').
  * An action without a matching slug is not checked, so a missing policy can
- * never lock anybody out. See config/hrm.php for the roll out modes.
+ * never lock anybody out. See config/hrm.php for the roll out modes. Only
+ * controllers under App\Http\Controllers\{Admin,Api\V1\Admin}\{Hrm,DataLibrary}
+ * are guarded.
  */
 class AdminPolicyService
 {
@@ -68,9 +71,11 @@ class AdminPolicyService
     public function denied(Request $request, string $controller, string $method): ?string
     {
         $mode = config('hrm.permissions', 'api');
-        $isHrm = str_starts_with($controller, 'App\\Http\\Controllers\\Admin\\Hrm\\')
-            || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\Hrm\\');
-        if ($mode === 'off' || !$isHrm) {
+        $isGuardedModule = str_starts_with($controller, 'App\\Http\\Controllers\\Admin\\Hrm\\')
+            || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\Hrm\\')
+            || str_starts_with($controller, 'App\\Http\\Controllers\\Admin\\DataLibrary\\')
+            || str_starts_with($controller, 'App\\Http\\Controllers\\Api\\V1\\Admin\\DataLibrary\\');
+        if ($mode === 'off' || !$isGuardedModule) {
             return null;
         }
         if (!Auth::guard('admin')->check()) {
