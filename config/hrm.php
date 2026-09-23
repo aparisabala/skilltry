@@ -54,5 +54,15 @@ return [
         'UpdatePolicyItemModalController@display' => 'hrm_user_policies_view',
         'UpdatePolicyItemModalController@update' => 'hrm_user_policies_edit',
 
+        // Account
+        'AcDraftBalanceSheetItemCrudController@saveAc' => 'ac_draft_balance_sheet_item_crud_edit',
+        'AccountController@ledgers' => 'ac_ledger_crud_view',
+        'AccountController@showLedger' => 'ac_ledger_crud_view',
+        'AccountController@storeLedger' => 'ac_ledger_crud_store',
+        'AccountController@updateLedger' => 'ac_ledger_crud_edit',
+        'AccountController@statement' => 'ac_report_view',
+        'AccountController@transactions' => 'ac_report_view',
+        'AccountController@post' => 'ac_draft_balance_sheet_item_crud_edit',
+
     ],
 ];

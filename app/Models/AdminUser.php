@@ -62,5 +62,20 @@ class AdminUser extends Authenticatable
         return $this->hasOne(AdminUserRole::class,'id','admin_user_role_id');
     }
 
+    public function opdFees()
+    {
+        return $this->hasOne(AdminUserOpdFees::class, 'admin_user_id','id');
+    }
+
+    public function opdSlots()
+    {
+        return $this->hasMany(AdminUserOpdSlot::class, 'admin_user_id','id');
+    }
+
+    public function designations()
+    {
+        return $this->hasMany(AdminUserDesignation::class, 'admin_user_id','id');
+    }
+
     //vpx_attach
 }

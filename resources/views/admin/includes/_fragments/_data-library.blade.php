@@ -1,4 +1,4 @@
-@canany(['lib_bank_view', 'lib_board_view', 'lib_degree_view', 'lib_skill_view', 'lib_division_view', 'lib_district_view', 'lib_thana_view'])
+@canany(['lib_bank_view', 'lib_board_view', 'lib_degree_view', 'lib_skill_view', 'lib_division_view', 'lib_district_view', 'lib_thana_view', 'lib_department_view'])
 <li class="{{ menuActive('admin/datalibrary/*') }}">
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="bx bx-library" aria-hidden="true"></i>
@@ -38,6 +38,11 @@
         @can('lib_thana_view')
         <li class="{{ menuActive('admin/datalibrary/location/thana', 'admin/datalibrary/location/thana/*') }}">
             <a href="{{url('admin/datalibrary/location/thana')}}">{{pxLang('admin.main-nav','datalibrary.menu.thana')}}</a>
+        </li>
+        @endcan
+        @can('lib_department_view')
+        <li class="{{ menuActive('admin/datalibrary/department', 'admin/datalibrary/department/*') }}">
+            <a href="{{url('admin/datalibrary/department')}}">Department</a>
         </li>
         @endcan
     </ul>

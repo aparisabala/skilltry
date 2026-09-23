@@ -45,3 +45,39 @@ if (! function_exists('pxLang')) {
 function getPolicyKey($Str,$key) {
     return $Str::lower($Str::replace(' ','_',$key));
 }
+
+function getYearList($startYear, $endYear)
+{
+    return range($startYear, $endYear);
+}
+
+function getMonthList()
+{
+    return [
+        1  => 'January',
+        2  => 'February',
+        3  => 'March',
+        4  => 'April',
+        5  => 'May',
+        6  => 'June',
+        7  => 'July',
+        8  => 'August',
+        9  => 'September',
+        10 => 'October',
+        11 => 'November',
+        12 => 'December',
+    ];
+}
+
+function getDayList()
+{
+    return [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+    ];
+}

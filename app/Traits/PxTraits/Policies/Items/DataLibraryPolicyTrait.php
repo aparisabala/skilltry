@@ -15,6 +15,7 @@ trait DataLibraryPolicyTrait {
                 ['name' => 'Lib Division', 'keys' => ['view','store','bulk_update','delete','pdf','excel','edit']],
                 ['name' => 'Lib District', 'keys' => ['view','store','bulk_update','delete','pdf','excel','edit']],
                 ['name' => 'Lib Thana', 'keys' => ['view','store','bulk_update','delete','pdf','excel','edit']],
+                ['name' => 'Lib Department', 'keys' => ['view','store','bulk_update','delete','pdf','excel','edit']],
             ]
         ];
     }

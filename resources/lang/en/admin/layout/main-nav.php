@@ -21,5 +21,17 @@ return [
     'account.menu.ledgers.cash' => 'Cash',
     'account.menu.ledgers.bank' => 'Bank',
     'account.menu.ledgers.income' => 'Income',
-    'account.menu.ledgers.expense' => 'Expense'
+    'account.menu.ledgers.expense' => 'Expense',
+    'account.menu.trasanction' => 'Transactions',
+    'account.menu.trasanction.receive' => 'Receive Amount',
+    'account.menu.trasanction.receive.cash' => 'Cash Receive',
+    'account.menu.trasanction.receive.bank' => 'Bank Receive',
+    'account.menu.trasanction.payment' => 'Payment Amount',
+    'account.menu.trasanction.payment.cash' => 'Cash Payment',
+    'account.menu.trasanction.payment.bank' => 'Bank Payment',
+    'account.menu.trasanction.bank_widraw' => 'Bank Widraw',
+    'account.menu.trasanction.bank_deposit' => 'Bank Deposit',
+    'account.menu.reports' => 'Reports',
+    'account.menu.reports.balance' => 'Balance Query',
+    'account.menu.reports.cashbook' => 'Cashbook'
 ];
